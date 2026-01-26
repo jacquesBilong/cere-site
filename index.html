@@ -120,17 +120,23 @@
 
     .carousel-item:nth-child(1) {
       background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), 
-                        url('https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+                        url('fotos/hero1.jpg');
     }
 
     .carousel-item:nth-child(2) {
       background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), 
-                        url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+                        url('fotos/hero2.jpg');
     }
 
     .carousel-item:nth-child(3) {
       background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), 
-                        url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80');
+                        url('fotos/hero3.jpg');
+    }
+
+    /* Fallback si les images n'existent pas */
+    .carousel-item:nth-child(1) {
+      background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
     }
 
     .carousel-caption {
@@ -219,6 +225,12 @@
       background-color: var(--primary-blue);
       position: relative;
       overflow: hidden;
+    }
+
+    .about-img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
     .mission-box {
@@ -1038,6 +1050,8 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="#accueil">
+        <!-- Logo depuis dossier fotos -->
+        <img src="fotos/logo.png" alt="Logo CÈRE" height="50" class="me-2">
         <div class="logo-container">
           <div class="logo-main">CÈRE</div>
           <div class="logo-subtitle">Centre de Recherches<br>et d'Études</div>
@@ -1108,8 +1122,12 @@
         <p>Centre de Recherches et d'Études en Sciences et Milieux Bibliques</p>
       </div>
       
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <!-- Photo de Nick Sandjali depuis dossier fotos -->
+          <img src="fotos/nick.jpg" alt="Dr Nick Sandjali - Fondateur du CÈRE" class="about-img">
+        </div>
+        <div class="col-lg-6">
           <div class="mission-box">
             <h4>Notre Création</h4>
             <p class="mb-4">Le <strong>CÈRE</strong> est créé en 2024 à l'initiative de <strong>SANDJALI NDJIKAM Nick</strong> qui en est le Directeur. Il est doctorant en Ancien Testament, enseignant d'Hébreu Biblique et d'Ancien Testament à l'Institut Supérieur de Théologie Dager de Bibia (Cameroun) et membre de plusieurs sociétés savantes.</p>
@@ -1141,35 +1159,6 @@
           </div>
         </div>
       </div>
-      
-      <div class="row mt-4">
-        <div class="col-md-6">
-          <div class="mission-box">
-            <h4>Contexte Camerounais / Africain</h4>
-            <ul>
-              <li>Carence de ressources documentaires de référence</li>
-              <li>Difficultés d'accès à la ressource numérique</li>
-              <li>Rareté de cercles et de laboratoire de recherches</li>
-              <li>Absence de programmes de soutien aux chercheurs</li>
-              <li>Pléthore de travaux de recherches inachevés</li>
-              <li>Faible volume de publications en sciences bibliques</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="col-md-6">
-          <div class="mission-box">
-            <h4>Contexte Occidental</h4>
-            <ul>
-              <li>Abondante ressource documentaire de référence</li>
-              <li>Accès facile à la ressource numérique</li>
-              <li>Foisonnement de cercles et de laboratoire de recherches</li>
-              <li>Disponibilité de programmes de soutien aux chercheurs</li>
-              <li>Publication régulière d'ouvrages de référence</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1185,8 +1174,8 @@
       <div class="row">
         <div class="col-md-4 mb-4">
           <div class="member-card">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
-                 alt="Dr Nick Sandjali" class="member-img">
+            <!-- Photo depuis dossier fotos -->
+            <img src="fotos/nick.jpg" alt="Dr Nick Sandjali" class="member-img">
             <div class="member-info">
               <h4>Dr Nick Sandjali</h4>
               <p class="member-role">Fondateur & Directeur</p>
@@ -1200,8 +1189,8 @@
         
         <div class="col-md-4 mb-4">
           <div class="member-card">
-            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
-                 alt="Dr Marie Leblanc" class="member-img">
+            <!-- Photo depuis dossier fotos -->
+            <img src="fotos/marie.png" alt="Dr Marie Leblanc" class="member-img">
             <div class="member-info">
               <h4>Dr Marie Leblanc</h4>
               <p class="member-role">Responsable Recherche</p>
@@ -1215,8 +1204,8 @@
         
         <div class="col-md-4 mb-4">
           <div class="member-card">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=688&q=80" 
-                 alt="Prof. Abraham Kwame" class="member-img">
+            <!-- Photo depuis dossier fotos -->
+            <img src="fotos/abraham.jpg" alt="Prof. Abraham Kwame" class="member-img">
             <div class="member-info">
               <h4>Prof. Abraham Kwame</h4>
               <p class="member-role">Consultant Scientifique</p>
@@ -1429,30 +1418,32 @@
       
       <div class="partner-grid">
         <div class="partner-card" onclick="window.open('https://icp.ac.fr', '_blank')">
-          <img src="https://via.placeholder.com/150x80/ffffff/1a365d?text=ICP" alt="Institut Catholique de Paris" class="partner-logo">
+          <!-- Logo depuis dossier fotos -->
+          <img src="fotos/logo_icp.png" alt="Institut Catholique de Paris" class="partner-logo">
           <h5>Institut Catholique de Paris</h5>
           <p class="partner-type">Université</p>
           <p>Partenaire principal en recherche biblique et formation doctorale.</p>
         </div>
         
         <div class="partner-card" onclick="window.open('https://ebaf.org', '_blank')">
-          <img src="https://via.placeholder.com/150x80/ffffff/d4af37?text=EBJ" alt="École Biblique de Jérusalem" class="partner-logo">
+          <!-- Logo depuis dossier fotos -->
+          <img src="fotos/logo_ebj.png" alt="École Biblique de Jérusalem" class="partner-logo">
           <h5>École Biblique de Jérusalem</h5>
           <p class="partner-type">Institut de Recherche</p>
           <p>Collaboration en archéologie biblique et études de terrain.</p>
         </div>
         
         <div class="partner-card" onclick="window.open('https://uy1.cm', '_blank')">
-          <img src="https://via.placeholder.com/150x80/ffffff/333333?text=UY1" alt="Université de Yaoundé I" class="partner-logo">
+          <!-- Logo depuis dossier fotos -->
+          <img src="fotos/logo_uy1.png" alt="Université de Yaoundé I" class="partner-logo">
           <h5>Université de Yaoundé I</h5>
           <p class="partner-type">Université</p>
           <p>Porteur du projet en Afrique francophone, collaborations académiques.</p>
         </div>
         
         <div class="partner-card" onclick="openCV('lefebvre')">
-          <div class="partner-logo" style="background-color: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-user-graduate" style="font-size: 3rem; color: var(--gold);"></i>
-          </div>
+          <!-- Photo chercheur partenaire -->
+          <img src="fotos/lefebvre.jpeg" alt="Dr Jean Lefebvre" class="partner-logo" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover;">
           <h5>Dr Jean Lefebvre</h5>
           <p class="partner-type">Chercheur Partenaire</p>
           <p>Spécialiste de l'exégèse rabbinique comparative.</p>
@@ -1471,8 +1462,8 @@
       </div>
       
       <div class="spotlight-card">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
-             alt="Dr Nick Sandjali" class="spotlight-img">
+        <!-- Photo depuis dossier fotos -->
+        <img src="fotos/nick.jpg" alt="Dr Nick Sandjali" class="spotlight-img">
         <div class="spotlight-content">
           <span class="spotlight-badge">MIS EN AVANT - JANVIER 2026</span>
           <h3>Dr Nick Sandjali</h3>
@@ -1663,7 +1654,7 @@
           <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés.</p>
           
           <h6>Crédits photos</h6>
-          <p>Unsplash, CÈRE</p>
+          <p>Archives CÈRE, Fotolia</p>
         </div>
       </div>
     </div>
@@ -1686,9 +1677,6 @@
       
       // Initialize back to top button
       initBackToTop();
-      
-      // Set current year in footer
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
     });
 
     // ========== SCROLL ANIMATIONS ==========
