@@ -3,382 +3,1169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CERE – Centre de Recherches et d'Études des Sciences et Milieux Bibliques</title>
-
-  <!-- Bootstrap & Icons -->
+  <meta name="description" content="CÈRE - Centre de Recherches et d'Études en Sciences et Milieux Bibliques. Chercher, Transmettre, Promouvoir.">
+  <title>CÈRE - Centre de Recherches et d'Études en Sciences et Milieux Bibliques</title>
+  
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
   <style>
-    /* ---------- Palette ---------- */
     :root {
-      --blue-dark: #0f2c59;
-      --blue-light: #3a8ddc;
-      --gold: #f1c40f;
-      --text-light: #f8f9fa;
-      --bg-dark: #081122;
-      --africa-orange: #e67e22;
-      --europe-blue: #3498db;
+      --primary-blue: #e8f4fc;
+      --gold: #c9a961;
+      --dark-blue: #1a365d;
+      --text-color: #333333;
+      --light-gray: #f8f9fa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      font-family: 'Source Sans Pro', sans-serif;
-      overflow-x: hidden;
-    }
-
-    /* ---------- Navbar ---------- */
-    .navbar {
-      background: rgba(10, 25, 50, 0.9);
-      backdrop-filter: blur(6px);
-      transition: all 0.4s;
-    }
-    .navbar-brand img {
-      height: 55px;
-      animation: float 4s ease-in-out infinite;
-    }
-    .nav-link {
-      color: var(--text-light) !important;
-      font-weight: 500;
+      font-family: 'Lato', sans-serif;
+      color: var(--text-color);
+      background-color: white;
+      line-height: 1.6;
       position: relative;
     }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      left: 0;
-      bottom: 0;
-      background: var(--gold);
-      transition: 0.3s;
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
 
-    /* ---------- Hero Section ---------- */
-    header {
-      background: linear-gradient(120deg, var(--blue-dark), var(--blue-light));
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      color: white;
-      overflow: hidden;
-    }
-
-    header::before {
+    body::before {
       content: '';
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(circle at 20% 20%, rgba(241,196,15,0.3), transparent 60%);
-      animation: glow 8s infinite alternate;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" opacity="0.03"><text x="50" y="200" font-family="Playfair Display" font-size="60" fill="%231a365d">CÈRE</text></svg>') center/200px repeat;
+      pointer-events: none;
+      z-index: -1;
     }
 
-    @keyframes glow {
-      0% {opacity: 0.4;}
-      100% {opacity: 0.8;}
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--dark-blue);
     }
 
-    h1.hero-title {
-      font-family: 'Crimson Text', serif;
-      font-size: 3.2rem;
-      letter-spacing: 1px;
-      /* Correction de la propriété -webkit-background-clip */
-      background: linear-gradient(90deg, var(--gold), #ffffff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeInDown 2s ease-out;
+    /* ========== NAVBAR ========== */
+    .navbar {
+      background-color: white !important;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      padding: 0.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .hero-motto {
-      font-size: 1.4rem;
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .logo-main {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--dark-blue);
+      line-height: 1;
+    }
+
+    .logo-subtitle {
+      font-size: 0.7rem;
       color: var(--gold);
       font-weight: 600;
-      margin: 20px 0;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: var(--dark-blue) !important;
+      margin: 0 8px;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem !important;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--gold) !important;
+    }
+
+    /* ========== HERO CAROUSEL ========== */
+    .hero-carousel {
+      height: 85vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-item {
+      height: 85vh;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .carousel-item:nth-child(1) {
+      background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+    }
+
+    .carousel-item:nth-child(2) {
+      background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), 
+                        url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+    }
+
+    .carousel-item:nth-child(3) {
+      background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80');
+    }
+
+    .carousel-caption {
+      bottom: 30%;
+      text-align: center;
+    }
+
+    .carousel-caption .logo-hero {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    }
+
+    .carousel-caption .subtitle {
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+    }
+
+    .carousel-caption .slogan {
+      font-size: 1.2rem;
+      color: white;
+      margin-bottom: 2rem;
       font-style: italic;
     }
 
-    @keyframes fadeInDown {
-      from {opacity: 0; transform: translateY(-20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    p.hero-subtitle {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      margin-bottom: 25px;
-      animation: fadeIn 2.5s ease;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: var(--blue-dark);
+    .btn-hero {
+      background-color: var(--gold);
+      color: var(--dark-blue);
+      padding: 14px 40px;
+      border-radius: 30px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: all 0.3s ease;
       border: none;
-      padding: 12px 28px;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: 0.3s;
-      box-shadow: 0 0 15px rgba(241,196,15,0.4);
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.9rem;
     }
 
-    .btn-gold:hover {
-      background: #ffda44;
+    .btn-hero:hover {
+      background-color: white;
+      color: var(--dark-blue);
       transform: translateY(-3px);
-      box-shadow: 0 0 25px rgba(241,196,15,0.7);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
-    /* ---------- Sections ---------- */
+    /* ========== SECTIONS ========== */
     section {
       padding: 80px 0;
     }
 
     .section-title {
-      font-family: 'Crimson Text', serif;
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--dark-blue);
+    }
+
+    .section-title .underline {
+      width: 80px;
+      height: 4px;
+      background-color: var(--gold);
+      margin: 0 auto 20px;
+    }
+
+    .section-title p {
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ========== ABOUT ========== */
+    #apropos {
+      background-color: var(--primary-blue);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-box {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-top: 30px;
+      border-top: 5px solid var(--gold);
+    }
+
+    .mission-box h4 {
       color: var(--gold);
-      font-size: 2.2rem;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, var(--dark-blue) 0%, #2a4365 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .highlight-box h4 {
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    /* ========== MEMBERS ========== */
+    .member-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
       margin-bottom: 30px;
+      text-align: center;
+      height: 100%;
+    }
+
+    .member-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .member-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .member-info {
+      padding: 30px;
+    }
+
+    .member-info h4 {
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+    }
+
+    .member-role {
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-cv {
+      background-color: var(--dark-blue);
+      color: white;
+      padding: 10px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      border: 2px solid var(--dark-blue);
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .btn-cv i {
+      margin-right: 8px;
+    }
+
+    .btn-cv:hover {
+      background-color: white;
+      color: var(--dark-blue);
+    }
+
+    /* ========== AGENDA ========== */
+    #agenda {
+      background-color: white;
+    }
+
+    .event-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      border-left: 5px solid #ddd;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--dark-blue);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .event-card:hover::before {
+      opacity: 1;
+    }
+
+    .event-card.upcoming {
+      border-left-color: var(--gold);
+      animation: pulse 2s infinite;
+      position: relative;
+    }
+
+    .event-card.upcoming::after {
+      content: 'À VENIR';
+      position: absolute;
+      top: 15px;
+      right: -35px;
+      background-color: var(--gold);
+      color: var(--dark-blue);
+      padding: 5px 40px;
+      transform: rotate(45deg);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 5px 15px rgba(201, 169, 97, 0.2); }
+      50% { box-shadow: 0 5px 25px rgba(201, 169, 97, 0.4); }
+      100% { box-shadow: 0 5px 15px rgba(201, 169, 97, 0.2); }
+    }
+
+    .event-date {
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .event-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--dark-blue);
+    }
+
+    .event-location {
+      color: #666;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .event-location i {
+      color: var(--gold);
+      margin-right: 8px;
+    }
+
+    /* ========== PUBLICATIONS ========== */
+    #publications {
+      background-color: var(--primary-blue);
+    }
+
+    .pub-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+      border-top: 3px solid transparent;
+    }
+
+    .pub-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-top-color: var(--gold);
+    }
+
+    .pub-type {
+      display: inline-block;
+      background-color: var(--primary-blue);
+      color: var(--dark-blue);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pub-card h4 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .pub-authors {
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .pub-details {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    /* ========== BIBLIOTHEQUE ========== */
+    #bibliotheque {
+      background-color: white;
+    }
+
+    .library-tabs {
+      margin-bottom: 40px;
       text-align: center;
     }
 
-    .card-custom {
-      background-color: #0f1c36;
+    .library-tabs button {
+      background: none;
       border: none;
-      border-radius: 12px;
-      padding: 30px;
-      transition: 0.3s;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      height: 100%;
-    }
-    .card-custom:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 30px rgba(241,196,15,0.2);
-    }
-
-    /* ---------- Double Contexte Section ---------- */
-    .context-comparison {
-      background: linear-gradient(135deg, var(--africa-orange) 0%, var(--europe-blue) 100%);
-      color: white;
-      padding: 60px 0;
-      border-radius: 15px;
-      margin: 40px 0;
+      padding: 12px 30px;
+      margin: 0 10px;
+      font-weight: 700;
+      color: var(--dark-blue);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .context-card {
-      background: rgba(255,255,255,0.95);
-      color: #333;
-      border-radius: 12px;
-      padding: 30px;
-      height: 100%;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-
-    .badge-africa {
-      background-color: var(--africa-orange);
-      color: white;
-    }
-
-    .badge-europe {
-      background-color: var(--europe-blue);
-      color: white;
-    }
-
-    /* ---------- Director Section ---------- */
-    .director-section {
-      background: linear-gradient(135deg, var(--blue-dark) 0%, #1e3a5f 100%);
-      padding: 80px 0;
-    }
-
-    .director-img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid var(--gold);
-      box-shadow: 0 0 25px rgba(241,196,15,0.5);
-    }
-
-    .member-badge {
-      background: rgba(241,196,15,0.2);
-      border: 1px solid var(--gold);
+    .library-tabs button.active {
+      border-bottom-color: var(--gold);
       color: var(--gold);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      margin: 5px;
-      display: inline-block;
     }
 
-    /* ---------- Vision Section ---------- */
-    .vision-section {
-      background: rgba(15, 28, 54, 0.8);
-      border-left: 4px solid var(--gold);
-      padding: 40px;
-      border-radius: 0 12px 12px 0;
-      margin: 40px 0;
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
     }
 
-    /* ---------- Domaines de Recherche ---------- */
-    .research-badge {
-      background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      margin: 3px;
-      display: inline-block;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ---------- Partenaires ---------- */
+    .tab-content.active {
+      display: block;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .resource-card {
+      background-color: var(--primary-blue);
+      padding: 30px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .resource-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+    }
+
+    .resource-icon {
+      color: var(--gold);
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .resource-card h4 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .resource-link {
+      color: var(--dark-blue);
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .resource-link i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .resource-link:hover i {
+      transform: translateX(5px);
+    }
+
+    /* ========== PARTENAIRES ========== */
+    #partenaires {
+      background-color: var(--primary-blue);
+    }
+
     .partner-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
       margin-top: 40px;
     }
 
-    .partner-logo {
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
+    .partner-card {
+      background-color: white;
+      padding: 30px;
       border-radius: 10px;
       text-align: center;
-      transition: 0.3s;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     }
 
-    .partner-logo:hover {
-      transform: scale(1.05);
+    .partner-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .partner-logo {
+      width: 150px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .partner-card h5 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .partner-type {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    /* ========== A LA UNE ========== */
+    #alaune {
+      background-color: white;
+      position: relative;
+    }
+
+    .spotlight-card {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, white 100%);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 992px) {
+      .spotlight-card {
+        flex-direction: row;
+      }
+    }
+
+    .spotlight-img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    @media (min-width: 992px) {
+      .spotlight-img {
+        width: 40%;
+        height: auto;
+      }
+    }
+
+    .spotlight-content {
+      padding: 50px;
+      width: 100%;
+    }
+
+    @media (min-width: 992px) {
+      .spotlight-content {
+        width: 60%;
+      }
+    }
+
+    .spotlight-badge {
+      display: inline-block;
+      background-color: var(--gold);
+      color: var(--dark-blue);
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .spotlight-content h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .spotlight-subtitle {
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .spotlight-theme {
+      background-color: rgba(201, 169, 97, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 25px 0;
+      border-left: 4px solid var(--gold);
+    }
+
+    .spotlight-theme em {
+      color: var(--dark-blue);
+      font-weight: 600;
+    }
+
+    /* ========== NEWSLETTER ========== */
+    #newsletter {
+      background-color: var(--dark-blue);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #newsletter::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .newsletter-container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .newsletter-form {
+      max-width: 600px;
+      margin: 40px auto 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .newsletter-form {
+        flex-direction: column;
+      }
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 15px 20px;
+      border-radius: 30px;
+      border: 2px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-family: 'Lato', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form input::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--gold);
       background: rgba(255,255,255,0.2);
     }
 
-    /* ---------- Publications ---------- */
-    .pub-item {
-      border-left: 3px solid var(--gold);
-      padding-left: 20px;
+    .newsletter-form button {
+      padding: 15px 40px;
+      border-radius: 30px;
+      border: none;
+      background-color: var(--gold);
+      color: var(--dark-blue);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .newsletter-form button:hover {
+      background-color: white;
+      transform: translateY(-3px);
+    }
+
+    /* ========== CONTACT ========== */
+    #contact {
+      background-color: var(--primary-blue);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    @media (max-width: 992px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .info-block {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      border-top: 5px solid var(--gold);
+    }
+
+    .info-block h4 {
+      color: var(--dark-blue);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .info-block h4 i {
+      color: var(--gold);
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--dark-blue);
+      color: white;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .contact-form {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
       margin-bottom: 25px;
     }
 
-    /* ---------- Contact ---------- */
-    .contact-section {
-      background: linear-gradient(120deg, var(--blue-light), var(--blue-dark));
+    .form-group label {
+      display: block;
+      color: var(--dark-blue);
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+    }
+
+    .btn-send {
+      background-color: var(--dark-blue);
       color: white;
+      padding: 15px 40px;
+      border-radius: 30px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      width: 100%;
     }
 
-    .contact-icon {
-      font-size: 1.8rem;
-      color: var(--gold);
-      margin-right: 15px;
+    .btn-send:hover {
+      background-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
-    /* ---------- Footer ---------- */
+    /* ========== FOOTER ========== */
     footer {
-      background: #06101f;
-      padding: 25px 0;
-      text-align: center;
-      color: #ccc;
+      background-color: var(--dark-blue);
+      color: white;
+      padding: 60px 0 30px;
     }
 
-    footer a {
-      color: var(--gold);
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+
+    .footer-section h5 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .footer-section h5::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--gold);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
       text-decoration: none;
-      margin: 0 10px;
-      transition: 0.3s;
-    }
-    footer a:hover { color: #fff; }
-
-    /* ---------- Animations ---------- */
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
     }
 
-    [data-animate] {
+    .footer-links a:hover {
+      color: var(--gold);
+      transform: translateX(5px);
+    }
+
+    .footer-about {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 50px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+    }
+
+    /* ========== SCROLL ANIMATION ========== */
+    .fade-in {
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
     }
-    [data-animate].visible {
+
+    .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* ---------- Responsive ---------- */
+    /* ========== BACK TO TOP ========== */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--gold);
+      color: var(--dark-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: white;
+      transform: translateY(-5px);
+    }
+
+    /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
-      h1.hero-title {
-        font-size: 2.2rem;
+      .carousel-caption .logo-hero {
+        font-size: 3rem;
       }
-      .hero-motto {
-        font-size: 1.1rem;
+      
+      .carousel-caption .subtitle {
+        font-size: 1.2rem;
       }
-      .director-img {
-        width: 180px;
-        height: 180px;
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .newsletter-form input,
+      .newsletter-form button {
+        width: 100%;
+      }
+      
+      .contact-form {
+        padding: 25px;
+      }
+      
+      .spotlight-content {
+        padding: 30px;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <!-- ========== BACK TO TOP ========== -->
+  <a href="#accueil" class="back-to-top" id="backToTop">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="https://jacquesbilong.github.io/cere-site/logo.png" alt="Logo CERE">
+      <a class="navbar-brand" href="#accueil">
+        <div class="logo-container">
+          <div class="logo-main">CÈRE</div>
+          <div class="logo-subtitle">Centre de Recherches<br>et d'Études</div>
+        </div>
       </a>
-      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="nav">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a href="#home" class="nav-link">Accueil</a></li>
-          <li class="nav-item"><a href="#about" class="nav-link">À propos</a></li>
-          <li class="nav-item"><a href="#research" class="nav-link">Recherche</a></li>
-          <li class="nav-item"><a href="#publications" class="nav-link">Publications</a></li>
-          <li class="nav-item"><a href="#partners" class="nav-link">Partenaires</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#accueil">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#apropos">À Propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#membres">Membres</a></li>
+          <li class="nav-item"><a class="nav-link" href="#agenda">Agenda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#bibliotheque">Bibliothèque</a></li>
+          <li class="nav-item"><a class="nav-link" href="#partenaires">Partenaires</a></li>
+          <li class="nav-item"><a class="nav-link" href="#alaune">À la Une</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header id="home">
-    <div class="container text-center">
-      <h1 class="hero-title">CERE – Centre de Recherches et d'Études<br>en Sciences et Milieux Bibliques</h1>
-      <div class="hero-motto">Chercher, Transmettre, Promouvoir</div>
-      <p class="hero-subtitle">Une tribune d'expression scientifique non-confessionnelle pour les chercheurs de tous bords</p>
-      <a href="#about" class="btn btn-gold">Découvrir le CERE</a>
-    </div>
-  </header>
-
-  <!-- À propos -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">À propos du CERE</h2>
-      <div class="row g-4">
-        <div class="col-md-6" data-animate>
-          <p>Le <strong>CERE</strong>, fondé en 2024 à l'initiative de <strong>SANDJALI NDJIKAM Nick</strong>, est un centre autonome dédié à la recherche, à la transmission du savoir et au dialogue scientifique entre chercheurs et institutions.</p>
-          <p>Notre approche reconnaît la centralité des milieux et cultures bibliques pour la compréhension du texte biblique, en utilisant des démarches exégétiques, historiques, comparatives et autres méthodes scientifiques.</p>
+  <!-- ========== HERO CAROUSEL ========== -->
+  <section id="accueil" class="hero-carousel">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="carousel-caption">
+            <div class="logo-hero">CÈRE</div>
+            <div class="subtitle">Centre de Recherches et d'Études</div>
+            <div class="slogan">des Sciences et Milieux Bibliques</div>
+            <p class="mb-4">Chercher, Transmettre, Promouvoir</p>
+            <a href="#apropos" class="btn-hero">Découvrir le CÈRE</a>
+          </div>
         </div>
-        <div class="col-md-6" data-animate>
-          <div class="card-custom">
-            <h5 class="text-warning">Nos valeurs</h5>
+        <div class="carousel-item">
+          <div class="carousel-caption">
+            <h1 style="font-size: 3.5rem; color: white; margin-bottom: 1rem;">Excellence Académique</h1>
+            <p class="slogan">Dialogue interculturel entre chercheurs d'Afrique et d'Europe</p>
+            <a href="#membres" class="btn-hero">Rencontrer nos chercheurs</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-caption">
+            <h1 style="font-size: 3.5rem; color: white; margin-bottom: 1rem;">Recherche & Publication</h1>
+            <p class="slogan">Contributions scientifiques en sciences bibliques et religieuses</p>
+            <a href="#publications" class="btn-hero">Voir nos publications</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========== À PROPOS ========== -->
+  <section id="apropos" class="fade-in">
+    <div class="container">
+      <div class="section-title">
+        <h2>À Propos du CÈRE</h2>
+        <div class="underline"></div>
+        <p>Centre de Recherches et d'Études en Sciences et Milieux Bibliques</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="mission-box">
+            <h4>Notre Création</h4>
+            <p class="mb-4">Le <strong>CÈRE</strong> est créé en 2024 à l'initiative de <strong>SANDJALI NDJIKAM Nick</strong> qui en est le Directeur. Il est doctorant en Ancien Testament, enseignant d'Hébreu Biblique et d'Ancien Testament à l'Institut Supérieur de Théologie Dager de Bibia (Cameroun) et membre de plusieurs sociétés savantes.</p>
+            
+            <p>Le CÈRE est un centre autonome, entretenant des rapports de natures variées tant avec des institutions académiques, des cercles et laboratoires de recherches ; qu'avec des enseignants-chercheurs, des chercheurs et passionnés pour atteindre ses objectifs globaux.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+          <div class="highlight-box">
+            <h4><i class="fas fa-bullseye me-2"></i>Le CÈRE se veut être un cadre de :</h4>
+            <ul style="color: white; padding-left: 20px;">
+              <li>Recherche et de promotion des sciences et milieux bibliques</li>
+              <li>Transmission de la recherche qui s'est faite, et de celle en train de se faire</li>
+              <li>Dialogue scientifique entre institutions, entre chercheurs</li>
+              <li>Accompagnement et soutien des chercheurs</li>
+              <li>Vulgarisation des travaux et initiatives de recherches</li>
+              <li>Mobilité entre institutions et cercles de recherches partenaires</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+          <div class="highlight-box">
+            <h4><i class="fas fa-eye me-2"></i>Notre Vision</h4>
+            <p>Être une tribune d'expression en science et milieux bibliques des chercheurs de tous bords, favorables à une recherche non-confessionnelle ; reconnaissant la centralité des milieux et cultures bibliques, pour la compréhension du texte biblique. Faire usage dans l'étude de la Bible, des démarches exégétiques, historiques, comparatives etc. (scientifiques).</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="mission-box">
+            <h4>Contexte Camerounais / Africain</h4>
             <ul>
-              <li>Recherche scientifique rigoureuse et non-confessionnelle</li>
-              <li>Dialogue interinstitutionnel Nord-Sud</li>
-              <li>Accompagnement des chercheurs africains et européens</li>
-              <li>Vulgarisation et partage du savoir</li>
-              <li>Mobilité académique internationale</li>
+              <li>Carence de ressources documentaires de référence</li>
+              <li>Difficultés d'accès à la ressource numérique</li>
+              <li>Rareté de cercles et de laboratoire de recherches</li>
+              <li>Absence de programmes de soutien aux chercheurs</li>
+              <li>Pléthore de travaux de recherches inachevés</li>
+              <li>Faible volume de publications en sciences bibliques</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="mission-box">
+            <h4>Contexte Occidental</h4>
+            <ul>
+              <li>Abondante ressource documentaire de référence</li>
+              <li>Accès facile à la ressource numérique</li>
+              <li>Foisonnement de cercles et de laboratoire de recherches</li>
+              <li>Disponibilité de programmes de soutien aux chercheurs</li>
+              <li>Publication régulière d'ouvrages de référence</li>
             </ul>
           </div>
         </div>
@@ -386,158 +1173,685 @@
     </div>
   </section>
 
-  <!-- Domaines de Recherche -->
-  <section id="research" style="background: rgba(15, 28, 54, 0.5);">
+  <!-- ========== MEMBRES ========== -->
+  <section id="membres" class="fade-in">
     <div class="container">
-      <h2 class="section-title">Domaines de Recherche</h2>
-      <div class="row g-4">
-        <div class="col-md-4" data-animate>
-          <div class="card-custom text-center">
-            <i class="fas fa-scroll fa-3x text-warning mb-3"></i>
-            <h5>Exégèse Biblique</h5>
-            <p>Étude critique des textes de l'Ancien et du Nouveau Testament</p>
-            <div class="mt-3">
-              <span class="research-badge">Hébreu Biblique</span>
-              <span class="research-badge">Grec Ancien</span>
-              <span class="research-badge">Araméen</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-animate>
-          <div class="card-custom text-center">
-            <i class="fas fa-monument fa-3x text-warning mb-3"></i>
-            <h5>Archéologie Biblique</h5>
-            <p>Étude des contextes historiques et culturels des textes bibliques</p>
-            <div class="mt-3">
-              <span class="research-badge">Terre Sainte</span>
-              <span class="research-badge">Qumrân</span>
-              <span class="research-badge">Archéologie</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-animate>
-          <div class="card-custom text-center">
-            <i class="fas fa-history fa-3x text-warning mb-3"></i>
-            <h5>Histoire des Religions</h5>
-            <p>Développement des traditions religieuses et réception des textes</p>
-            <div class="mt-3">
-              <span class="research-badge">Patristique</span>
-              <span class="research-badge">Herméneutique</span>
-              <span class="research-badge">Réception</span>
-            </div>
-          </div>
-        </div>
+      <div class="section-title">
+        <h2>Nos Membres</h2>
+        <div class="underline"></div>
+        <p>Équipe de chercheurs et collaborateurs du CÈRE</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Publications -->
-  <section id="publications">
-    <div class="container">
-      <h2 class="section-title">Publications Récentes</h2>
+      
       <div class="row">
-        <div class="col-lg-8">
-          <div class="pub-item" data-animate>
-            <h5>L'herméneutique des psaumes dans la tradition rabbinique</h5>
-            <p class="text-muted">Lefebvre, J. (2023). <em>Revue des Sciences Religieuses</em>, 45(2), 112-125.</p>
-            <a href="#" class="btn btn-sm btn-outline-warning me-2">PDF</a>
-            <a href="#" class="btn btn-sm btn-outline-warning">Résumé</a>
-          </div>
-          <div class="pub-item" data-animate>
-            <h5>Nouvelles découvertes archéologiques à Qumrân</h5>
-            <p class="text-muted">Moreau, A. (2023). <em>Biblical Archaeology Review</em>, 37(1), 45-58.</p>
-            <a href="#" class="btn btn-sm btn-outline-warning me-2">PDF</a>
-            <a href="#" class="btn btn-sm btn-outline-warning">Résumé</a>
+        <div class="col-md-4 mb-4">
+          <div class="member-card">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
+                 alt="Dr Nick Sandjali" class="member-img">
+            <div class="member-info">
+              <h4>Dr Nick Sandjali</h4>
+              <p class="member-role">Fondateur & Directeur</p>
+              <p>Doctorant en Ancien Testament, enseignant d'Hébreu Biblique. Spécialiste en exégèse biblique en contexte africain.</p>
+              <a href="cv/cv_nick_sandjali.pdf" class="btn-cv" target="_blank">
+                <i class="fas fa-file-pdf me-2"></i>Télécharger CV
+              </a>
+            </div>
           </div>
         </div>
-        <div class="col-lg-4" data-animate>
-          <div class="card-custom">
-            <h5 class="text-warning">Appels à Contributions</h5>
-            <p><strong>Revue des Sciences Bibliques</strong><br>
-            Date limite: 15 décembre 2024</p>
-            <a href="#" class="btn btn-gold btn-sm">Soumettre</a>
+        
+        <div class="col-md-4 mb-4">
+          <div class="member-card">
+            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
+                 alt="Dr Marie Leblanc" class="member-img">
+            <div class="member-info">
+              <h4>Dr Marie Leblanc</h4>
+              <p class="member-role">Responsable Recherche</p>
+              <p>Herméneutique comparée, traditions rabbiniques médiévales. 12 ans d'expérience en recherche biblique.</p>
+              <a href="cv/cv_marie_leblanc.pdf" class="btn-cv" target="_blank">
+                <i class="fas fa-file-pdf me-2"></i>Télécharger CV
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="member-card">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=688&q=80" 
+                 alt="Prof. Abraham Kwame" class="member-img">
+            <div class="member-info">
+              <h4>Prof. Abraham Kwame</h4>
+              <p class="member-role">Consultant Scientifique</p>
+              <p>Philologie sémitique, archéologie biblique. Professeur à l'Université de Yaoundé I.</p>
+              <a href="cv/cv_abraham_kwame.pdf" class="btn-cv" target="_blank">
+                <i class="fas fa-file-pdf me-2"></i>Télécharger CV
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Partenaires -->
-  <section id="partners" style="background: rgba(15, 28, 54, 0.5);">
+  <!-- ========== AGENDA ========== -->
+  <section id="agenda" class="fade-in">
     <div class="container">
-      <h2 class="section-title">Partenaires Académiques</h2>
+      <div class="section-title">
+        <h2>Agenda</h2>
+        <div class="underline"></div>
+        <p>Événements scientifiques et rencontres du CÈRE</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <!-- Événements à venir (avec animation) -->
+          <div class="event-card upcoming">
+            <div class="event-date">15 - 20 Mars 2026</div>
+            <h3 class="event-title">Séminaire d'Études Bibliques Africaines</h3>
+            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Yaoundé, Cameroun</p>
+            <p>Thème: <strong>"Traditions orales et littératures bibliques"</strong>. Durée: 5 jours avec chercheurs internationaux. Séminaire intensif pour doctorants et chercheurs.</p>
+          </div>
+          
+          <div class="event-card upcoming">
+            <div class="event-date">10 - 12 Juin 2026</div>
+            <h3 class="event-title">Colloque International: Dialogue Interculturel</h3>
+            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Paris & Visioconférence</p>
+            <p>Thème: <strong>"Exégèse biblique et pluralité culturelle"</strong>. Participation de conférenciers internationaux d'Europe et d'Afrique. Publication des actes prévue.</p>
+          </div>
+          
+          <div class="event-card upcoming">
+            <div class="event-date">Octobre 2026</div>
+            <h3 class="event-title">Formation Doctorale en Herméneutique</h3>
+            <p class="event-location"><i class="fas fa-map-marker-alt"></i> En ligne</p>
+            <p>Programme de 8 semaines pour masterants et doctorants. Approches comparées en herméneutique biblique.</p>
+          </div>
+          
+          <!-- Événements passés -->
+          <div class="event-card">
+            <div class="event-date">Décembre 2024</div>
+            <h3 class="event-title">Lancement Officiel du CÈRE</h3>
+            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Paris, France</p>
+            <p>Cérémonie de lancement avec les fondateurs et premiers partenaires institutionnels. Présentation des objectifs et programmes.</p>
+          </div>
+          
+          <div class="event-card">
+            <div class="event-date">Janvier 2025</div>
+            <h3 class="event-title">Conférence: Les Manuscrits Bibliques</h3>
+            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Institut Catholique de Paris</p>
+            <p>Intervention du Dr Nick Sandjali sur les nouvelles approches numériques des manuscrits bibliques.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PUBLICATIONS ========== -->
+  <section id="publications" class="fade-in">
+    <div class="container">
+      <div class="section-title">
+        <h2>Publications</h2>
+        <div class="underline"></div>
+        <p>Travaux scientifiques publiés par les membres du CÈRE</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="pub-card">
+            <span class="pub-type">Article</span>
+            <h4>L'herméneutique des psaumes dans la tradition rabbinique</h4>
+            <p class="pub-authors">Lefebvre J., Sandjali N.</p>
+            <p>Analyse comparative des méthodes d'interprétation psalmique entre traditions médiévales et approches exégétiques modernes.</p>
+            <div class="pub-details">
+              <strong>Revue:</strong> Revue des Sciences Religieuses<br>
+              <strong>Année:</strong> 2024<br>
+              <strong>Pages:</strong> 45-78
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+          <div class="pub-card">
+            <span class="pub-type">Ouvrage</span>
+            <h4>La Bible et les cultures africaines</h4>
+            <p class="pub-authors">Sandjali N., Kwame A. (dir.)</p>
+            <p>Recueil multidisciplinaire explorant les dynamiques de réception biblique en contextes africains.</p>
+            <div class="pub-details">
+              <strong>Éditeur:</strong> Éditions CÈRE<br>
+              <strong>Année:</strong> 2025<br>
+              <strong>Pages:</strong> 320
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+          <div class="pub-card">
+            <span class="pub-type">Chapitre</span>
+            <h4>Textes sacrés et cosmologies africaines</h4>
+            <p class="pub-authors">Leblanc M., Kimani J.</p>
+            <p>Étude anthropologique de la relation entre textes bibliques et systèmes cosmologiques africains.</p>
+            <div class="pub-details">
+              <strong>Ouvrage:</strong> Religions Africaines Contemporaines<br>
+              <strong>Année:</strong> 2024<br>
+              <strong>Pages:</strong> 89-124
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+          <div class="pub-card">
+            <span class="pub-type">Article</span>
+            <h4>Manuscrits bibliques: nouvelles approches numériques</h4>
+            <p class="pub-authors">Sandjali N., Leblanc M.</p>
+            <p>Application des technologies numériques à l'analyse textuelle et phylogénétique des manuscrits.</p>
+            <div class="pub-details">
+              <strong>Revue:</strong> Digital Humanities Quarterly<br>
+              <strong>Année:</strong> 2025<br>
+              <strong>Pages:</strong> 23-45
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BIBLIOTHEQUE ========== -->
+  <section id="bibliotheque" class="fade-in">
+    <div class="container">
+      <div class="section-title">
+        <h2>Bibliothèque</h2>
+        <div class="underline"></div>
+        <p>Ressources documentaires et bibliographies spécialisées</p>
+      </div>
+      
+      <div class="library-tabs">
+        <button class="active" onclick="switchTab('banque')">Banque Documentaire</button>
+        <button onclick="switchTab('bibliographies')">Bibliographies Séminaires</button>
+      </div>
+      
+      <div id="banque" class="tab-content active">
+        <div class="resource-grid">
+          <div class="resource-card">
+            <div class="resource-icon"><i class="fas fa-book"></i></div>
+            <h4>Revues Spécialisées</h4>
+            <p>Catalogue complet de revues en sciences bibliques et religieuses. Accès aux archives numériques.</p>
+            <a href="#" class="resource-link">Consulter le catalogue <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="resource-card">
+            <div class="resource-icon"><i class="fas fa-newspaper"></i></div>
+            <h4>Articles Scientifiques</h4>
+            <p>Base de données d'articles publiés par nos chercheurs et collaborateurs. Recherche par auteur, sujet, année.</p>
+            <a href="#" class="resource-link">Accéder à la base <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="resource-card">
+            <div class="resource-icon"><i class="fas fa-book-open"></i></div>
+            <h4>Ouvrages de Référence</h4>
+            <p>Dictionnaires, traités et monographies en études bibliques. Fonds documentaire physique et numérique.</p>
+            <a href="#" class="resource-link">Explorer le fonds <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div id="bibliographies" class="tab-content">
+        <div class="resource-grid">
+          <div class="resource-card">
+            <div class="resource-icon"><i class="fas fa-file-alt"></i></div>
+            <h4>Colloque 2025: Dialogue Interculturel</h4>
+            <p>Bibliographie complète et documents de synthèse du colloque international 2025.</p>
+            <a href="#" class="resource-link">Télécharger PDF <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="resource-card">
+            <div class="resource-icon"><i class="fas fa-file-alt"></i></div>
+            <h4>Séminaire Yaoundé 2024</h4>
+            <p>Traditions Orales - Tous les supports, présentations et conclusions du séminaire.</p>
+            <a href="#" class="resource-link">Accéder aux ressources <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="resource-card">
+            <div class="resource-icon"><i class="fas fa-file-alt"></i></div>
+            <h4>Formation Herméneutique</h4>
+            <p>Ressources pédagogiques et lectures obligatoires du programme de formation 2024-2025.</p>
+            <a href="#" class="resource-link">Consulter <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARTENAIRES ========== -->
+  <section id="partenaires" class="fade-in">
+    <div class="container">
+      <div class="section-title">
+        <h2>Partenaires</h2>
+        <div class="underline"></div>
+        <p>Institutions et chercheurs collaborant avec le CÈRE</p>
+      </div>
+      
       <div class="partner-grid">
-        <div class="partner-logo" data-animate>
-          <i class="fas fa-university fa-3x text-warning"></i>
-          <p class="mt-2">Institut Catholique de Paris</p>
+        <div class="partner-card" onclick="window.open('https://icp.ac.fr', '_blank')">
+          <img src="https://via.placeholder.com/150x80/ffffff/1a365d?text=ICP" alt="Institut Catholique de Paris" class="partner-logo">
+          <h5>Institut Catholique de Paris</h5>
+          <p class="partner-type">Université</p>
+          <p>Partenaire principal en recherche biblique et formation doctorale.</p>
         </div>
-        <div class="partner-logo" data-animate>
-          <i class="fas fa-landmark fa-3x text-warning"></i>
-          <p class="mt-2">École Biblique de Jérusalem</p>
+        
+        <div class="partner-card" onclick="window.open('https://ebaf.org', '_blank')">
+          <img src="https://via.placeholder.com/150x80/ffffff/d4af37?text=EBJ" alt="École Biblique de Jérusalem" class="partner-logo">
+          <h5>École Biblique de Jérusalem</h5>
+          <p class="partner-type">Institut de Recherche</p>
+          <p>Collaboration en archéologie biblique et études de terrain.</p>
         </div>
-        <div class="partner-logo" data-animate>
-          <i class="fas fa-graduation-cap fa-3x text-warning"></i>
-          <p class="mt-2">Université de Strasbourg</p>
+        
+        <div class="partner-card" onclick="window.open('https://uy1.cm', '_blank')">
+          <img src="https://via.placeholder.com/150x80/ffffff/333333?text=UY1" alt="Université de Yaoundé I" class="partner-logo">
+          <h5>Université de Yaoundé I</h5>
+          <p class="partner-type">Université</p>
+          <p>Porteur du projet en Afrique francophone, collaborations académiques.</p>
         </div>
-        <div class="partner-logo" data-animate>
-          <i class="fas fa-book fa-3x text-warning"></i>
-          <p class="mt-2">Pontificio Istituto Biblico</p>
+        
+        <div class="partner-card" onclick="openCV('lefebvre')">
+          <div class="partner-logo" style="background-color: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-user-graduate" style="font-size: 3rem; color: var(--gold);"></i>
+          </div>
+          <h5>Dr Jean Lefebvre</h5>
+          <p class="partner-type">Chercheur Partenaire</p>
+          <p>Spécialiste de l'exégèse rabbinique comparative.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact-section">
-    <div class="container text-center">
-      <h2 class="section-title text-white">Contact</h2>
-      <p class="mb-4">Rejoignez-nous ou contactez notre équipe :</p>
-      <p><i class="fas fa-envelope contact-icon"></i> contact@cere-recherche.org</p>
-      <p><i class="fas fa-map-marker-alt contact-icon"></i> Double implantation : Paris / Yaoundé</p>
-      <p><i class="fas fa-globe contact-icon"></i> www.cere-recherche.org</p>
-      <div class="mt-4">
-        <a href="#" class="btn btn-outline-light me-2"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="btn btn-outline-light me-2"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="btn btn-outline-light me-2"><i class="fab fa-academia"></i></a>
-        <a href="#" class="btn btn-outline-light"><i class="fab fa-youtube"></i></a>
+  <!-- ========== À LA UNE ========== -->
+  <section id="alaune" class="fade-in">
+    <div class="container">
+      <div class="section-title">
+        <h2>À la Une</h2>
+        <div class="underline"></div>
+        <p>Personne ou institution mise en avant chaque mois</p>
+      </div>
+      
+      <div class="spotlight-card">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
+             alt="Dr Nick Sandjali" class="spotlight-img">
+        <div class="spotlight-content">
+          <span class="spotlight-badge">MIS EN AVANT - JANVIER 2026</span>
+          <h3>Dr Nick Sandjali</h3>
+          <p class="spotlight-subtitle">Fondateur et Directeur du CÈRE</p>
+          <p>Doctorant en Ancien Testament et enseignant d'Hébreu Biblique, le Dr Nick Sandjali est le fondateur du CÈRE et membre actif de sociétés savantes internationales comme la SBL (Society of Biblical Literature) et l'EABS (European Association of Biblical Study).</p>
+          
+          <div class="spotlight-theme">
+            <p><strong>Thème du mois:</strong></p>
+            <p><em>"Traditions africaines et exégèse biblique: pour un dialogue fécond entre herméneutique occidentale et interprétations contextuelles africaines."</em></p>
+          </div>
+          
+          <p>Ses travaux portent sur les dynamiques culturelles de l'interprétation biblique en contexte africain, explorant les intersections entre exégèse scientifique et réceptions populaires des textes sacrés.</p>
+          
+          <a href="#membres" class="btn-cv mt-3">Voir le profil complet <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ========== NEWSLETTER ========== -->
+  <section id="newsletter" class="fade-in">
+    <div class="container newsletter-container">
+      <div class="section-title">
+        <h2 style="color: white;">Newsletter</h2>
+        <div class="underline" style="background-color: var(--gold);"></div>
+        <p style="color: rgba(255,255,255,0.9);">Recevez nos actualités, publications et informations sur les événements</p>
+      </div>
+      
+      <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+        <input type="text" placeholder="Votre nom" required>
+        <input type="email" placeholder="Votre email" required>
+        <button type="submit">S'inscrire</button>
+      </form>
+      
+      <p style="margin-top: 20px; color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+        <i class="fas fa-shield-alt me-2"></i>Vos données sont protégées et ne seront jamais partagées.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="fade-in">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <div class="underline"></div>
+        <p>Prenez contact avec le CÈRE</p>
+      </div>
+      
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <div class="info-block">
+            <h4><i class="fas fa-map-marker-alt"></i> Paris</h4>
+            <p><strong>Institut Catholique de Paris</strong></p>
+            <p>21 Rue d'Assas, 75006 Paris</p>
+            <p>Tél: +33 (0)1 44 39 52 00</p>
+            <p>Email: <a href="mailto:contact@cere-recherche.org">contact@cere-recherche.org</a></p>
+          </div>
+          
+          <div class="info-block">
+            <h4><i class="fas fa-map-marker-alt"></i> Yaoundé</h4>
+            <p><strong>Université de Yaoundé I</strong></p>
+            <p>BP 755, Cameroun</p>
+            <p>Tél: +237 222 25 18 00</p>
+            <p>Email: <a href="mailto:yaunde@cere-recherche.org">yaunde@cere-recherche.org</a></p>
+          </div>
+          
+          <div class="info-block">
+            <h4><i class="fas fa-share-alt"></i> Suivez-nous</h4>
+            <div class="social-links">
+              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form onsubmit="sendContactForm(event)">
+            <div class="form-group">
+              <label for="name">Nom Complet *</label>
+              <input type="text" id="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Sujet *</label>
+              <input type="text" id="subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-send">
+              <i class="fas fa-paper-plane me-2"></i>Envoyer le message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
   <footer>
-    <p>&copy; 2024 CERE — Centre de Recherches et d'Études en Sciences et Milieux Bibliques.</p>
-    <p>
-      <a href="#">Mentions légales</a> | 
-      <a href="#">Politique de confidentialité</a> |
-      <a href="#">Espace membres</a>
-    </p>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h5>CÈRE</h5>
+          <p class="footer-about">
+            <strong>Centre de Recherches et d'Études en Sciences et Milieux Bibliques</strong><br><br>
+            Créé en 2024. Chercher, Transmettre, Promouvoir l'excellence en recherche biblique.
+          </p>
+        </div>
+        
+        <div class="footer-section">
+          <h5>Navigation</h5>
+          <div class="footer-links">
+            <a href="#accueil">Accueil</a>
+            <a href="#apropos">À Propos</a>
+            <a href="#membres">Membres</a>
+            <a href="#agenda">Agenda</a>
+            <a href="#publications">Publications</a>
+            <a href="#bibliotheque">Bibliothèque</a>
+            <a href="#partenaires">Partenaires</a>
+            <a href="#alaune">À la Une</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h5>Ressources</h5>
+          <div class="footer-links">
+            <a href="#bibliotheque">Bibliothèque numérique</a>
+            <a href="#publications">Publications</a>
+            <a href="#">Archives des séminaires</a>
+            <a href="#">Appels à contributions</a>
+            <a href="#">Documentation</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h5>Légal</h5>
+          <div class="footer-links">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#mentionsModal">Mentions légales</a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#confidentialiteModal">Politique de confidentialité</a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#cookiesModal">Cookies</a>
+            <a href="#">Espace membres</a>
+            <a href="mailto:contact@cere-recherche.org">Contact administratif</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2026 <strong>CÈRE</strong> - Centre de Recherches et d'Études en Sciences et Milieux Bibliques. Tous droits réservés.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Conforme aux instructions de Nick Sandjali (mail du 13 décembre 2025)</p>
+      </div>
+    </div>
   </footer>
 
-  <!-- JS -->
+  <!-- Modal Mentions Légales -->
+  <div class="modal fade" id="mentionsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Mentions Légales</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <h6>Éditeur</h6>
+          <p><strong>CÈRE - Centre de Recherches et d'Études en Sciences et Milieux Bibliques</strong><br>
+          Directeur de publication: Dr Nick Sandjali<br>
+          Contact: contact@cere-recherche.org</p>
+          
+          <h6>Hébergement</h6>
+          <p>[Nom de l'hébergeur]<br>
+          [Adresse de l'hébergeur]<br>
+          Tél: [Téléphone]</p>
+          
+          <h6>Propriété intellectuelle</h6>
+          <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés.</p>
+          
+          <h6>Crédits photos</h6>
+          <p>Unsplash, CÈRE</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
   <script>
-    // Animation lors du scroll
-    const elements = document.querySelectorAll('[data-animate]');
-    function showElements() {
-      const trigger = window.innerHeight * 0.85;
-      elements.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < trigger) el.classList.add('visible');
+    // ========== INITIALIZATION ==========
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize carousel
+      const carousel = new bootstrap.Carousel(document.getElementById('heroCarousel'), {
+        interval: 5000,
+        wrap: true
+      });
+      
+      // Initialize scroll animations
+      initScrollAnimations();
+      
+      // Initialize back to top button
+      initBackToTop();
+      
+      // Set current year in footer
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+    });
+
+    // ========== SCROLL ANIMATIONS ==========
+    function initScrollAnimations() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      fadeElements.forEach(el => observer.observe(el));
+      
+      // Active nav link on scroll
+      window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+          }
+        });
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+          }
+        });
       });
     }
-    window.addEventListener('scroll', showElements);
-    showElements();
 
-    // Smooth scrolling pour la navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    // ========== BACK TO TOP ==========
+    function initBackToTop() {
+      const backToTop = document.getElementById('backToTop');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+      
+      backToTop.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        window.scrollTo({
+          top: 0,
           behavior: 'smooth'
         });
       });
+    }
+
+    // ========== LIBRARY TABS ==========
+    function switchTab(tabName) {
+      // Update active tab button
+      document.querySelectorAll('.library-tabs button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Show selected tab content
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.getElementById(tabName).classList.add('active');
+    }
+
+    // ========== NEWSLETTER SUBSCRIPTION ==========
+    function subscribeNewsletter(e) {
+      e.preventDefault();
+      const form = e.target;
+      const name = form[0].value;
+      const email = form[1].value;
+      
+      // Simple mailto fallback (pourrait être remplacé par un vrai backend)
+      const subject = `Inscription Newsletter CÈRE - ${name}`;
+      const body = `Nom: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A---%0D%0AInscription via le site web CÈRE`;
+      
+      window.location.href = `mailto:contact@cere-recherche.org?subject=${encodeURIComponent(subject)}&body=${body}`;
+      
+      // Message de confirmation
+      setTimeout(() => {
+        alert(`Merci ${name} ! Votre inscription à notre newsletter a été enregistrée. Vous recevrez nos actualités régulièrement.`);
+        form.reset();
+      }, 500);
+    }
+
+    // ========== CONTACT FORM ==========
+    function sendContactForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.querySelector('#name').value;
+      const email = form.querySelector('#email').value;
+      const subject = form.querySelector('#subject').value;
+      const message = form.querySelector('#message').value;
+      
+      // Simple mailto fallback
+      const mailSubject = `Message site CÈRE: ${subject}`;
+      const mailBody = `Nom: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}%0D%0A%0D%0A---%0D%0AMessage envoyé via le site web CÈRE`;
+      
+      window.location.href = `mailto:contact@cere-recherche.org?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+      
+      // Message de confirmation
+      setTimeout(() => {
+        alert('Merci ! Votre message a été envoyé. Nous vous répondrons dans les plus brefs délais.');
+        form.reset();
+      }, 500);
+    }
+
+    // ========== SMOOTH SCROLL ==========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        // Skip if it's a modal trigger
+        if (href === '#' || href.startsWith('#modal')) return;
+        
+        e.preventDefault();
+        const targetId = href;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Update active nav link
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+          });
+          this.classList.add('active');
+        }
+      });
     });
+
+    // ========== OPEN CV ==========
+    function openCV(memberId) {
+      const members = {
+        lefebvre: {
+          name: "Dr Jean Lefebvre",
+          title: "Chercheur Partenaire",
+          content: "Spécialiste de l'exégèse rabbinique comparative. Publications dans Revue des Sciences Religieuses, etc."
+        },
+        kimani: {
+          name: "Prof. Joseph Kimani",
+          title: "Anthropologue Partenaire",
+          content: "Anthropologue spécialiste des cultures africaines et de leur relation avec les textes bibliques."
+        }
+      };
+      
+      if (members[memberId]) {
+        alert(`CV de ${members[memberId].name}\n\n${members[memberId].title}\n\n${members[memberId].content}\n\n(Pour voir le CV complet, téléchargez le fichier PDF correspondant)`);
+      }
+    }
   </script>
 </body>
 </html>
